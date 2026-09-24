@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: academic-engine
+Version: 0.1.0
+Summary: Free, local-first academic metadata engine: ingest, search, and map research literature
+Requires-Python: >=3.10
+Requires-Dist: httpx>=0.27
+Requires-Dist: pydantic>=2.6
+Requires-Dist: tenacity>=8.2
+Requires-Dist: aiolimiter>=1.1
+Requires-Dist: typer>=0.12
+Requires-Dist: loguru>=0.7
+Requires-Dist: python-dotenv>=1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
