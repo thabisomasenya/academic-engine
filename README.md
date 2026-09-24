@@ -6,7 +6,7 @@ Free, local-first pipeline: ingest papers from OpenAlex, store them in SQLite, s
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-cp .env.example .env        # put your email in OPENALEX_MAILTO
+cp .env.example .env        # paste your free OpenAlex API key into OPENALEX_API_KEY
 pytest
 ```
 

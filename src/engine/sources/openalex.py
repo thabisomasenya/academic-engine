@@ -66,8 +66,8 @@ def parse_work(work: dict) -> Paper | None:
 
 
 class OpenAlexClient:
-    def __init__(self, mailto: str | None = None, raw_dir: Path | None = None, rps: float = 8.0):
-        self.mailto = mailto or os.getenv("OPENALEX_MAILTO")
+    def __init__(self, api_key: str | None = None, raw_dir: Path | None = None, rps: float = 8.0):
+        self.api_key = api_key or os.getenv("OPENALEX_API_KEY")
         self.raw_dir = raw_dir
         self._limiter = AsyncLimiter(max_rate=rps, time_period=1)  # stay under the rate limit
         self._client = httpx.AsyncClient(timeout=30)
@@ -98,8 +98,8 @@ class OpenAlexClient:
                 "search": query, "per-page": min(100, max_results - fetched),
                 "cursor": cursor, "select": SELECT,
             }
-            if self.mailto:
-                params["mailto"] = self.mailto
+            if self.api_key:
+                params["api_key"] = self.api_key
             data = await self._get(params)
             results = data.get("results", [])
             if not results:
